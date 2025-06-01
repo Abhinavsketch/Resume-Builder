@@ -1,0 +1,18 @@
+import express from "express";
+import cors from "cors";
+
+const app = express();
+const port = 4000;
+
+//MiddleWare
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(cors());
+
+app.get("/", (req, res, next) => {
+  res.send("Working");
+});
+
+app.listen(port, () => {
+  console.log("Server is running");
+});

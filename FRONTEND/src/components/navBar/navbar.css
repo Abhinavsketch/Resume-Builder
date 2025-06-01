@@ -1,0 +1,15 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 25px;
+}
+
+.nav-container .intro h2 {
+  font-size: 3vw;
+}
