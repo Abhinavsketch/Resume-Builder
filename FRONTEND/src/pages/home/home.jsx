@@ -1,4 +1,4 @@
-import Main from "../../components/main/main";
+import Main from "../../components/main/mainContainer";
 import Navbar from "../../components/navBar/navbar";
 import "./home.css";
 

@@ -1,4 +1,5 @@
 import "./main.css";
+import { Link } from "react-router-dom";
 
 const Main = () => {
   return (
@@ -11,7 +12,9 @@ const Main = () => {
         </p>
       </div>
       <div className="cta-button">
-        <button>Resume</button>
+        <Link to="/resume">
+          <button>Resume</button>
+        </Link>
         <button>ATS</button>
       </div>
     </div>

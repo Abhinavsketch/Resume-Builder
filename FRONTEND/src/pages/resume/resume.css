@@ -1,0 +1,34 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.resumeContainer {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+}
+
+.resumeContainer .formContainer {
+  width: 50%;
+  background-color: yellow;
+}
+
+.resumeContainer .previewContainer {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.resumeContainer .previewContainer .liveContainer {
+  width: 210mm;
+  height: 287mm;
+  background-color: red;
+  margin: 50px;
+}
+
+.liveContainer {
+  font-family: Arial;
+}
