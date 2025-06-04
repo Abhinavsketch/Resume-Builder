@@ -1,17 +1,56 @@
 import "./Personal.css";
+import { UserContext } from "../../context/userInfo";
+import { useContext } from "react";
 
 const Personal = () => {
+  const { userData, setUserData, handleChange } = useContext(UserContext);
   return (
     <div className="personalinfoContainer">
       <div className="name-container twoInfo">
-        <input name="first" type="text" placeholder="First Name" />
-        <input name="last" type="text" placeholder="Last Name" />
+        <input
+          name="firstName"
+          value={userData.firstName}
+          type="text"
+          placeholder="First Name"
+          onChange={handleChange}
+        />
+        <input
+          name="lastName"
+          value={userData.lastName}
+          type="text"
+          placeholder="Last Name"
+          onChange={handleChange}
+        />
       </div>
       <div className="otherInfo">
-        <input name="Gmail" type="text" placeholder="Gmail Here" />
-        <input name="number" type="number" placeholder="Phone Number" />
-        <input name="github" type="text" placeholder="GitHub Link" />
-        <input name="linkedin" type="text" placeholder="Linkedin" />
+        <input
+          name="gmail"
+          value={userData.gmail}
+          type="text"
+          placeholder="Gmail Here"
+          onChange={handleChange}
+        />
+        <input
+          name="phonenumber"
+          value={userData.phonenumber}
+          type="number"
+          placeholder="Phone Number"
+          onChange={handleChange}
+        />
+        <input
+          name="gitHub"
+          value={userData.gitHub}
+          type="text"
+          placeholder="GitHub Link"
+          onChange={handleChange}
+        />
+        <input
+          name="linkedin"
+          value={userData.linkedin}
+          type="text"
+          placeholder="Linkedin"
+          onChange={handleChange}
+        />
       </div>
     </div>
   );

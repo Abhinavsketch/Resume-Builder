@@ -1,8 +1,11 @@
 import "./skills.css";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { UserContext } from "../../context/userInfo";
 
 const Skill = () => {
   const [projects, setProject] = useState([1]);
+  const { userData, handleChange, handleProjectChange } =
+    useContext(UserContext);
 
   const addProject = () => {
     setProject([...projects, projects.length + 1]);
@@ -15,18 +18,58 @@ const Skill = () => {
   };
   return (
     <div className="skillContainer">
-      <input type="text" placeholder="Languages" />
-      <input type="text" placeholder="Technologies" />
+      <input
+        name="languages"
+        value={userData.languages.join(", ")}
+        type="text"
+        placeholder="Languages"
+        onChange={handleChange}
+      />
+      <input
+        name="technologies"
+        value={userData.technologies.join(", ")}
+        type="text"
+        placeholder="Technologies"
+        onChange={handleChange}
+      />
       {projects.map((proj, index) => {
         return (
           <div className="projectContainer" key={index}>
-            <input type="text" placeholder="Project Name" />
+            <input
+              name="projectName"
+              value={proj.projectName}
+              type="text"
+              placeholder="Project Name"
+              onChange={(e) => {
+                handleProjectChange(e, index);
+              }}
+            />
             <textarea
-              name=""
-              id=""
+              name="projectDescription"
               placeholder="Project Description"
+              value={proj.projectDescription}
+              onChange={(e) => {
+                handleProjectChange(e, index);
+              }}
             ></textarea>
-            <input type="text" placeholder="Project Link" />
+            <input
+              name="techUsed"
+              value={proj.techUsed}
+              type="text"
+              placeholder="Tech Used Here"
+              onChange={(e) => {
+                handleProjectChange(e, index);
+              }}
+            />
+            <input
+              name="projectLink"
+              value={proj.projectLink}
+              type="text"
+              placeholder="Project Link"
+              onChange={(e) => {
+                handleProjectChange(e, index);
+              }}
+            />
           </div>
         );
       })}
