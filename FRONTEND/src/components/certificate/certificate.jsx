@@ -3,11 +3,34 @@ import { useContext, useState } from "react";
 import { UserContext } from "../../context/userInfo";
 
 const Certificate = () => {
-  const [certificateCount, setCertificateCount] = useState([1]);
-  const { userData, handleCertificateChange } = useContext(UserContext);
+  const { userData, handleCertificateChange, setUserData } =
+    useContext(UserContext);
+
+  const addCertificate = () => {
+    const newCertificate = {
+      certificateName: "",
+      certificateDescription: "",
+      certificateLink: "",
+    };
+    setUserData((prev) => ({
+      ...prev,
+      aboutCertificate: [...prev.aboutCertificate, newCertificate],
+    }));
+  };
+
+  const deleteCertificate = () => {
+    if (userData.aboutCertificate.length > 1) {
+      const updatedCerti = [...userData.aboutCertificate];
+      updatedCerti.pop();
+      setUserData((prev) => ({
+        ...prev,
+        aboutCertificate: updatedCerti,
+      }));
+    }
+  };
   return (
     <div className="certificateContainer">
-      {certificateCount.map((item, key) => {
+      {userData.aboutCertificate.map((item, key) => {
         return (
           <div className="certificateInput" key={key}>
             <input
@@ -34,23 +57,9 @@ const Certificate = () => {
         );
       })}
       <div className="certificateButton">
-        <button
-          onClick={() => {
-            setCertificateCount([
-              ...certificateCount,
-              certificateCount.length + 1,
-            ]);
-          }}
-        >
-          Add Certificate
-        </button>
-        <button
-          onClick={() => {
-            setCertificateCount(certificateCount.slice(0, -1));
-          }}
-        >
-          Delete Certificate
-        </button>
+        <button onClick={addCertificate}>Add Certificate</button>
+
+        <button onClick={deleteCertificate}>Delete Certificate</button>
       </div>
     </div>
   );

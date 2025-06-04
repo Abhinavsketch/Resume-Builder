@@ -57,5 +57,186 @@
 
 .resumeContainer .previewContainer {
   width: 50%;
-  background-color: red;
+  height: 100vh;
+  overflow-y: scroll;
+}
+
+.resumeContainer .previewContainer .liveContainer {
+  width: 100%;
+  height: 1123px;
+  background-color: #fff;
+}
+
+.resumeContainer .previewContainer .liveContainer .headContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.resumeContainer .previewContainer .liveContainer .headContainer .personalInfo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.resumeContainer
+  .previewContainer
+  .liveContainer
+  .headContainer
+  .personalInfo
+  h2 {
+  font-size: 1vw;
+  font-weight: 600;
+}
+
+.resumeContainer
+  .previewContainer
+  .liveContainer
+  .headContainer
+  .personalInfo
+  a {
+  text-decoration: none;
+  color: black;
+  font-weight: 600;
+}
+
+.resumeContainer
+  .previewContainer
+  .liveContainer
+  .headContainer
+  .projectContainer {
+  display: flex;
+  gap: 10px;
+}
+
+.resumeContainer
+  .previewContainer
+  .liveContainer
+  .headContainer
+  .projectContainer
+  a {
+  text-decoration: none;
+  font-weight: 600;
+  color: black;
+}
+
+.resumeContainer .previewContainer .liveContainer .skill .userSkill {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.resumeContainer .previewContainer .liveContainer .skill .userSkill h2 {
+  font-size: 1.2vw;
+  font-weight: 600;
+}
+
+.resumeContainer .previewContainer .liveContainer .project {
+  margin-top: 15px;
+}
+
+.resumeContainer .previewContainer .liveContainer .project .userProject {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px 20px;
+}
+
+.resumeContainer
+  .previewContainer
+  .liveContainer
+  .project
+  .userProject
+  .userProjectContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.resumeContainer .previewContainer .liveContainer .project .userProject,
+.userProjectContainer h2 {
+  font-size: 1.2vw;
+}
+
+.resumeContainer .previewContainer .liveContainer .project .userProject ul li {
+  list-style: disc;
+}
+
+.resumeContainer .previewContainer .liveContainer .project .userProject a {
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.resumeContainer .previewContainer .liveContainer .certificate {
+  margin-top: 15px;
+}
+
+.resumeContainer
+  .previewContainer
+  .liveContainer
+  .certificate
+  .userCertificate {
+  padding: 10px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.resumeContainer
+  .previewContainer
+  .liveContainer
+  .certificate
+  .userCertificate
+  h2 {
+  font-size: 1.3vw;
+  font-weight: 600;
+}
+
+.resumeContainer
+  .previewContainer
+  .liveContainer
+  .certificate
+  .userCertificate
+  a {
+  text-decoration: none;
+  color: black;
+  font-weight: 600;
+}
+
+.resumeContainer .previewContainer .liveContainer .education {
+  margin-top: 15px;
+}
+
+.resumeContainer .previewContainer .liveContainer .education .userEducation {
+  padding: 10px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.resumeContainer
+  .previewContainer
+  .liveContainer
+  .education
+  .userEducation
+  .collageGrade,
+.seniorGrade,
+.higherGrade {
+  display: flex;
+  justify-content: space-between;
+}
+
+.resumeContainer
+  .previewContainer
+  .liveContainer
+  .education
+  .userEducation
+  .collageGrade
+  h2,
+.seniorGrade h2,
+.higherGrade h2 {
+  font-size: 1.3vw;
 }

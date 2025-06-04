@@ -4,16 +4,30 @@ import { UserContext } from "../../context/userInfo";
 
 const Skill = () => {
   const [projects, setProject] = useState([1]);
-  const { userData, handleChange, handleProjectChange } =
+  const { userData, handleChange, handleProjectChange, setUserData } =
     useContext(UserContext);
 
   const addProject = () => {
-    setProject([...projects, projects.length + 1]);
+    const newProject = {
+      projectName: "",
+      projectDescription: "",
+      techUsed: "",
+      projectLink: "",
+    };
+    setUserData((prev) => ({
+      ...prev,
+      aboutProject: [...prev.aboutProject, newProject],
+    }));
   };
 
   const deleteProject = () => {
-    if (projects.length > 1) {
-      setProject(projects.slice(0, -1));
+    if (userData.aboutProject.length > 1) {
+      const updatedabout = [...userData.aboutProject];
+      updatedabout.pop();
+      setUserData((prev) => ({
+        ...prev,
+        aboutProject: updatedabout,
+      }));
     }
   };
   return (
@@ -32,7 +46,7 @@ const Skill = () => {
         placeholder="Technologies"
         onChange={handleChange}
       />
-      {projects.map((proj, index) => {
+      {userData.aboutProject.map((proj, index) => {
         return (
           <div className="projectContainer" key={index}>
             <input

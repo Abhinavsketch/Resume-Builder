@@ -48,7 +48,7 @@ const UserContextProvider = ({ children }) => {
     if (Array.isArray(userData[name])) {
       setUserData((prev) => ({
         ...prev,
-        [name]: value.split(",").map((item) => item.trim()),
+        [name]: value.split(","),
       }));
     } else {
       setUserData((prev) => ({

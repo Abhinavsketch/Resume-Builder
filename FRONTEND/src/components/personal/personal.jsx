@@ -31,8 +31,8 @@ const Personal = () => {
           onChange={handleChange}
         />
         <input
-          name="phonenumber"
-          value={userData.phonenumber}
+          name="phoneNumber"
+          value={userData.phoneNumber}
           type="number"
           placeholder="Phone Number"
           onChange={handleChange}
