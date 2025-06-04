@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../public/styles/user.css" />
+  </head>
+  <body>
+    <div class="previewContainer">
+      <div class="liveContainer">
+        <div class="headContainer">
+          <h2><%= userData.firstName %> <%= userData.lastName %></h2>
+          <div class="personalInfo">
+            <% if (userData.gmail) { %>
+            <a href="<%= userData.gmail %>" target="_blank">Gmail</a>
+            <% } %>
+            <h2><%= userData.phoneNumber %></h2>
+          </div>
+          <div class="projectContainer">
+            <% if (userData.gitHub) { %>
+            <a href="<%= userData.gitHub %>" target="_blank">GitHub</a>
+            <% } %> <% if (userData.linkedin) { %>
+            <a href="<%= userData.linkedin %>" target="_blank">Linkedin</a>
+            <% } %>
+          </div>
+        </div>
+
+        <div class="skill">
+          <% if (userData.languages.length > 0) { %>
+          <h2>Skills</h2>
+          <hr />
+          <div class="userSkill">
+            <h2>Languages: <%= userData.languages.join(", ") %></h2>
+            <% if (userData.technologies.length > 0) { %>
+            <h2>Technologies: <%= userData.technologies.join(", ") %></h2>
+            <% } %>
+          </div>
+          <% } %>
+        </div>
+
+        <% if (userData.aboutProject.some(item => item.projectName)) { %>
+        <div class="project">
+          <h2>Projects</h2>
+          <hr />
+          <div class="userProject">
+            <% userData.aboutProject.forEach(function(item, index) { %>
+            <div class="userProjectContainer" key="<%= index %>">
+              <h2><%= item.projectName %></h2>
+              <ul>
+                <li><%= item.projectDescription %></li>
+                <li><%= item.projectDescription %></li>
+                <li><%= item.projectDescription %></li>
+              </ul>
+              <% if (item.techUsed) { %>
+              <h2>Tech Used: <%= item.techUsed %></h2>
+              <% } %> <% if (item.projectLink) { %>
+              <a href="<%= item.projectLink %>"><%= item.projectName %></a>
+              <% } %>
+            </div>
+            <% }); %>
+          </div>
+        </div>
+        <% } %> <% if (userData.aboutCertificate.some(item =>
+        item.certificateName)) { %>
+        <div class="certificate">
+          <h2>Certificates</h2>
+          <hr />
+          <% userData.aboutCertificate.forEach(function(item, index) { %>
+          <div class="userCertificate" key="<%= index %>">
+            <h2><%= item.certificateName %></h2>
+            <ul>
+              <li><%= item.certificateDescription %></li>
+              <li><%= item.certificateDescription %></li>
+              <li><%= item.certificateDescription %></li>
+            </ul>
+            <% if (item.certificateLink) { %>
+            <a href="<%= item.certificateLink %>">Certificate</a>
+            <% } %>
+          </div>
+          <% }); %>
+        </div>
+        <% } %> <% if (userData.aboutCollage.some(item => item.collageName)) {
+        %>
+        <div class="education">
+          <h2>Education</h2>
+          <hr />
+          <div class="userEducation">
+            <% userData.aboutCollage.forEach(function(item, index) { %>
+            <div class="collageGrade" key="<%= index %>">
+              <div class="about">
+                <h2><%= item.collageName %></h2>
+                <h2><%= item.collageDegree %></h2>
+              </div>
+              <div class="mark">
+                <h2><%= item.collageGrade %></h2>
+              </div>
+            </div>
+            <% }); %>
+
+            <div class="seniorSecondary">
+              <div class="seniorGrade">
+                <div class="aboutSenior">
+                  <h2><%= userData.seniorSecondaryName %></h2>
+                  <h2><%= userData.seniorSecondaryClass %></h2>
+                </div>
+                <div class="seniorMark">
+                  <h2>
+                    <%= userData.seniorSecondaryGrade ?
+                    userData.seniorSecondaryGrade + '%' : '' %>
+                  </h2>
+                </div>
+              </div>
+            </div>
+
+            <div class="higherSecondary">
+              <div class="higherGrade">
+                <div class="aboutHigh">
+                  <h2><%= userData.higherName %></h2>
+                  <h2><%= userData.higherClass %></h2>
+                </div>
+                <div class="HighMark">
+                  <h2>
+                    <%= userData.higherGrade ? userData.higherGrade + '%' : ''
+                    %>
+                  </h2>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <% } %>
+      </div>
+    </div>
+  </body>
+</html>

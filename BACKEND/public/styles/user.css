@@ -1,0 +1,144 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.previewContainer {
+  width: 50%;
+  height: 100vh;
+  overflow-y: scroll;
+}
+
+.previewContainer .liveContainer {
+  width: 100%;
+  height: 1123px;
+  background-color: #fff;
+}
+
+.previewContainer .liveContainer .headContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.previewContainer .liveContainer .headContainer .personalInfo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.previewContainer .liveContainer .headContainer .personalInfo h2 {
+  font-size: 1vw;
+  font-weight: 600;
+}
+
+.previewContainer .liveContainer .headContainer .personalInfo a {
+  text-decoration: none;
+  color: black;
+  font-weight: 600;
+}
+
+.previewContainer .liveContainer .headContainer .projectContainer {
+  display: flex;
+  gap: 10px;
+}
+
+.previewContainer .liveContainer .headContainer .projectContainer a {
+  text-decoration: none;
+  font-weight: 600;
+  color: black;
+}
+
+.previewContainer .liveContainer .skill .userSkill {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.previewContainer .liveContainer .skill .userSkill h2 {
+  font-size: 1.2vw;
+  font-weight: 600;
+}
+
+.previewContainer .liveContainer .project {
+  margin-top: 15px;
+}
+
+.previewContainer .liveContainer .project .userProject {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px 20px;
+}
+
+.previewContainer .liveContainer .project .userProject .userProjectContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.previewContainer .liveContainer .project .userProject,
+.userProjectContainer h2 {
+  font-size: 1.2vw;
+}
+
+.previewContainer .liveContainer .project .userProject ul li {
+  list-style: disc;
+}
+
+.previewContainer .liveContainer .project .userProject a {
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.previewContainer .liveContainer .certificate {
+  margin-top: 15px;
+}
+
+.previewContainer .liveContainer .certificate .userCertificate {
+  padding: 10px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.previewContainer .liveContainer .certificate .userCertificate h2 {
+  font-size: 1.3vw;
+  font-weight: 600;
+}
+
+.previewContainer .liveContainer .certificate .userCertificate a {
+  text-decoration: none;
+  color: black;
+  font-weight: 600;
+}
+
+.previewContainer .liveContainer .education {
+  margin-top: 15px;
+}
+
+.previewContainer .liveContainer .education .userEducation {
+  padding: 10px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.previewContainer .liveContainer .education .userEducation .collageGrade,
+.seniorGrade,
+.higherGrade {
+  display: flex;
+  justify-content: space-between;
+}
+
+.previewContainer .liveContainer .education .userEducation .collageGrade h2,
+.seniorGrade h2,
+.higherGrade h2 {
+  font-size: 1.3vw;
+}
