@@ -182,7 +182,7 @@
         </div>
 
         <div class="skill">
-          <% if (userData.languages.length > 0) { %>
+          <% if (userData.languages && userData.languages.length > 0) { %>
           <h2>Skills</h2>
           <hr />
           <div class="userSkill">
@@ -194,7 +194,8 @@
           <% } %>
         </div>
 
-        <% if (userData.aboutProject.some(item => item.projectName)) { %>
+        <% if (userData.aboutProject && userData.aboutProject.some(item =>
+        item.projectName)) { %>
         <div class="project">
           <h2>Projects</h2>
           <hr />
@@ -203,9 +204,10 @@
             <div class="userProjectContainer" key="<%= index %>">
               <h2><%= item.projectName %></h2>
               <ul>
-                <li><%= item.projectDescription %></li>
-                <li><%= item.projectDescription %></li>
-                <li><%= item.projectDescription %></li>
+                <% if (points && points[index] && points[index].length > 0) { %>
+                <% points[index].forEach((item) => { %>
+                <li><%= item.replace(/^[-•]\s*/, "") %></li>
+                <% }) %> <% } %>
               </ul>
               <% if (item.techUsed) { %>
               <h2>Tech Used: <%= item.techUsed %></h2>

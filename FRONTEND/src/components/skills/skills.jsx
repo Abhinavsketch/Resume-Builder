@@ -4,8 +4,13 @@ import { UserContext } from "../../context/userInfo";
 
 const Skill = () => {
   const [projects, setProject] = useState([1]);
-  const { userData, handleChange, handleProjectChange, setUserData } =
-    useContext(UserContext);
+  const {
+    userData,
+    handleChange,
+    handleProjectChange,
+    setUserData,
+    generatePoints,
+  } = useContext(UserContext);
 
   const addProject = () => {
     const newProject = {
@@ -66,6 +71,13 @@ const Skill = () => {
                 handleProjectChange(e, index);
               }}
             ></textarea>
+            <button
+              onClick={() => {
+                generatePoints(index);
+              }}
+            >
+              Generate Points
+            </button>
             <input
               name="techUsed"
               value={proj.techUsed}

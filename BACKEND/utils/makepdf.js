@@ -7,9 +7,10 @@ import { join, dirname } from "path";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-export const generatePdf = async (userData) => {
+export const generatePdf = async (userData, points) => {
   const html = await ejs.renderFile(join(__dirname, "../views/user.ejs"), {
     userData,
+    points,
   });
   const browser = await puppeteer.launch({
     headless: "new",

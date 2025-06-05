@@ -1,8 +1,11 @@
 import { createContext, useState } from "react";
+import axios from "axios";
 
 export const UserContext = createContext();
 
 const UserContextProvider = ({ children }) => {
+  const url = "http://localhost:4000";
+  const [points, setPoints] = useState([]);
   const [userData, setUserData] = useState({
     firstName: "",
     lastName: "",
@@ -91,6 +94,40 @@ const UserContextProvider = ({ children }) => {
     }));
   };
 
+  const sendData = async () => {
+    try {
+      const response = await axios.post(
+        `${url}/api/resume/generatepdf`,
+        { userData, points },
+        {
+          responseType: "blob",
+        }
+      );
+      const pdfBlob = new Blob([response.data], { type: "application/pdf" });
+      const pdfurl = window.URL.createObjectURL(pdfBlob);
+      const link = document.createElement("a");
+      link.href = pdfurl;
+      link.setAttribute("download", "resume.pdf");
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const generatePoints = async (index) => {
+    try {
+      const response = await axios.post(`${url}/api/resume/description`, {
+        discription: userData.aboutProject[index].projectDescription,
+      });
+
+      setPoints((prev) => [...prev, response.data.data]);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   const contextValue = {
     userData,
     setUserData,
@@ -98,6 +135,9 @@ const UserContextProvider = ({ children }) => {
     handleProjectChange,
     handleCertificateChange,
     handelCollageData,
+    sendData,
+    points,
+    generatePoints,
   };
 
   return (

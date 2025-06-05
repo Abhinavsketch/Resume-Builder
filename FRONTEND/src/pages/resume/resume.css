@@ -12,6 +12,21 @@
   display: flex;
   background-color: #95a5a6;
   gap: 10px;
+  position: relative;
+}
+
+.pdf {
+  position: absolute;
+  z-index: 99;
+  right: 2%;
+  top: 2%;
+  height: 30px;
+  padding: 0 15px;
+  background-color: #0984e3;
+  color: #fff;
+  outline: none;
+  border: 1px solid black;
+  cursor: pointer;
 }
 
 .resumeContainer .formContainer {
@@ -163,6 +178,8 @@
 
 .resumeContainer .previewContainer .liveContainer .project .userProject ul li {
   list-style: disc;
+  font-size: 1.2vw;
+  font-weight: 600;
 }
 
 .resumeContainer .previewContainer .liveContainer .project .userProject a {

@@ -7,8 +7,11 @@ import Education from "../../components/Education/education";
 import { UserContext } from "../../context/userInfo";
 
 const Resume = () => {
-  const { userData } = useContext(UserContext);
+  const { userData, sendData, generatePoints, points } =
+    useContext(UserContext);
   const [count, setCount] = useState(0);
+  console.log(points);
+  console.log(userData);
   const step = [
     {
       name: "Personal",
@@ -42,6 +45,9 @@ const Resume = () => {
   };
   return (
     <div className="resumeContainer">
+      <button className="pdf" onClick={sendData}>
+        Download
+      </button>
       <div className="formContainer">
         <div className="title">
           <h2>Enter Your Information</h2>
@@ -99,9 +105,9 @@ const Resume = () => {
                       <div className="userProjectContainer" key={index}>
                         <h2>{item.projectName}</h2>
                         <ul>
-                          <li>{item.projectDescription}</li>
-                          <li>{item.projectDescription}</li>
-                          <li>{item.projectDescription}</li>
+                          {points[index]?.map((item, key) => {
+                            return <li key={key}>{item.replace("-", "")}</li>;
+                          })}
                         </ul>
                         <h2>
                           {item.techUsed ? "Tech Used: " : ""}

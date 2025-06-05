@@ -3,8 +3,8 @@ import { generatePdf } from "../utils/makepdf.js";
 
 export const getUserData = async (req, res) => {
   try {
-    const userData = req.body;
-    const pdf = await generatePdf(userData);
+    const { userData, points } = req.body;
+    const pdf = await generatePdf(userData, points);
     res.set({
       "Content-Type": "application/pdf",
       "Content-Disposition": "attachment; filename=resume.pdf",
