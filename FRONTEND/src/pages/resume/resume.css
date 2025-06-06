@@ -78,7 +78,7 @@
 
 .resumeContainer .previewContainer .liveContainer {
   width: 100%;
-  height: 1123px;
+  height: auto;
   background-color: #fff;
 }
 

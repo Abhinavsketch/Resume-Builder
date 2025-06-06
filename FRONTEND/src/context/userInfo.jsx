@@ -6,6 +6,7 @@ export const UserContext = createContext();
 const UserContextProvider = ({ children }) => {
   const url = "http://localhost:4000";
   const [points, setPoints] = useState([]);
+  const [certi, setcerti] = useState([]);
   const [userData, setUserData] = useState({
     firstName: "",
     lastName: "",
@@ -98,7 +99,7 @@ const UserContextProvider = ({ children }) => {
     try {
       const response = await axios.post(
         `${url}/api/resume/generatepdf`,
-        { userData, points },
+        { userData, points, certi },
         {
           responseType: "blob",
         }
@@ -116,13 +117,20 @@ const UserContextProvider = ({ children }) => {
     }
   };
 
-  const generatePoints = async (index) => {
+  const generatePoints = async (index, type = "description") => {
     try {
       const response = await axios.post(`${url}/api/resume/description`, {
-        discription: userData.aboutProject[index].projectDescription,
+        discription:
+          type === "certificate"
+            ? userData.aboutCertificate[index].certificateDescription
+            : userData.aboutProject[index].projectDescription,
+        type,
       });
-
-      setPoints((prev) => [...prev, response.data.data]);
+      {
+        type === "description"
+          ? setPoints((prev) => [...prev, response.data.data])
+          : setcerti((prev) => [...prev, response.data.data]);
+      }
     } catch (error) {
       console.log(error);
     }
@@ -138,6 +146,7 @@ const UserContextProvider = ({ children }) => {
     sendData,
     points,
     generatePoints,
+    certi,
   };
 
   return (

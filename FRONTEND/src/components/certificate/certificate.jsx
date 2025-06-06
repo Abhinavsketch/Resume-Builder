@@ -3,7 +3,7 @@ import { useContext, useState } from "react";
 import { UserContext } from "../../context/userInfo";
 
 const Certificate = () => {
-  const { userData, handleCertificateChange, setUserData } =
+  const { userData, handleCertificateChange, setUserData, generatePoints } =
     useContext(UserContext);
 
   const addCertificate = () => {
@@ -46,6 +46,13 @@ const Certificate = () => {
               placeholder="About Certificate"
               onChange={(e) => handleCertificateChange(e, key)}
             ></textarea>
+            <button
+              onClick={() => {
+                generatePoints(key, "certificate");
+              }}
+            >
+              Generate Description
+            </button>
             <input
               name="certificateLink"
               value={item.certificateLink}

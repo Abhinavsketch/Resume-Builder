@@ -16,13 +16,13 @@
 
       .previewContainer {
         width: 100%;
-        height: 100vh;
+        height: auto;
         overflow-y: scroll;
       }
 
       .previewContainer .liveContainer {
         width: 210mm;
-        height: 297mm;
+        height: auto;
         background-color: #fff;
       }
 
@@ -168,7 +168,7 @@
           <h2><%= userData.firstName %> <%= userData.lastName %></h2>
           <div class="personalInfo">
             <% if (userData.gmail) { %>
-            <a href="<%= userData.gmail %>" target="_blank">Gmail</a>
+            <a href="mailto:<%= userData.gmail %>" target="_blank">Gmail</a>
             <% } %>
             <h2><%= userData.phoneNumber %></h2>
           </div>
@@ -227,9 +227,10 @@
           <div class="userCertificate" key="<%= index %>">
             <h2><%= item.certificateName %></h2>
             <ul>
-              <li><%= item.certificateDescription %></li>
-              <li><%= item.certificateDescription %></li>
-              <li><%= item.certificateDescription %></li>
+              <% if (certi && certi[index] && certi[index].length > 0) { %> <%
+              certi[index].forEach((item) => { %>
+              <li><%= item.replace(/^[-•]\s*/, "") %></li>
+              <% }) %> <% } %>
             </ul>
             <% if (item.certificateLink) { %>
             <a href="<%= item.certificateLink %>">Certificate</a>

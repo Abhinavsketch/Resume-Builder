@@ -25,6 +25,14 @@
   padding-left: 15px;
 }
 
+.certificateContainer .certificateInput button {
+  width: 30%;
+  height: 50px;
+  background-color: #0984e3;
+  color: #fff;
+  border: 1px solid black;
+}
+
 .certificateContainer textarea {
   height: 80px;
   padding-top: 15px;

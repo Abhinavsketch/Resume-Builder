@@ -7,7 +7,7 @@ import Education from "../../components/Education/education";
 import { UserContext } from "../../context/userInfo";
 
 const Resume = () => {
-  const { userData, sendData, generatePoints, points } =
+  const { userData, sendData, generatePoints, points, certi } =
     useContext(UserContext);
   const [count, setCount] = useState(0);
   console.log(points);
@@ -59,13 +59,13 @@ const Resume = () => {
         </div>
       </div>
       <div className="previewContainer">
-        <div className="liveContainer">
+        <div className="liveContainer" contenteditable="true">
           <div className="headContainer">
             <h2>
               {userData.firstName} {userData.lastName}
             </h2>
             <div className="personalInfo">
-              <a href={userData.gmail} target="_blank">
+              <a href={`mailto:${userData.gmail}`} target="_blank">
                 {userData.gmail ? "Gmail" : ""}
               </a>
               <h2>{userData.phoneNumber}</h2>
@@ -134,11 +134,17 @@ const Resume = () => {
                   return (
                     <div className="userCertificate" key={index}>
                       <h2>{item.certificateName}</h2>
-                      <ul>
-                        <li>{item.certificateDescription}</li>
-                        <li>{item.certificateDescription}</li>
-                        <li>{item.certificateDescription}</li>
-                      </ul>
+                      {certi[index]?.length > 0 ? (
+                        <ul>
+                          {certi[index]?.map((point, key) => (
+                            <li key={key}>{point.replace("-", "")}</li>
+                          ))}
+                        </ul>
+                      ) : (
+                        <p style={{ color: "gray", fontStyle: "italic" }}>
+                          No points generated yet.
+                        </p>
+                      )}
                       <a href={item.certificateLink}>
                         {item.certificateLink ? "Certificate" : ""}
                       </a>
