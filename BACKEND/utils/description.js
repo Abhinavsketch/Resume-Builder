@@ -9,7 +9,7 @@ const openai = new OpenAI({
 const convertBullet = async (userDescription, type) => {
   const prompt =
     type === "description"
-      ? "Convert these user description into 4-6 points for the resume according to the user description and also tell the use of technologies with it like if pdf making puppeteer is used like this"
+      ? "Convert these user description into 2-3 points for the resume according to the user description and also tell the use of technologies with it like if pdf making puppeteer is used like this"
       : "This is certificate description mention stuff like what i learn and important info like this in one paragaph don't make too large just 1-2 line";
   const completion = await openai.chat.completions.create({
     messages: [
